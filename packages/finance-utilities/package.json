@@ -1,0 +1,57 @@
+{
+  "name": "@repo/finance-utilities",
+  "version": "0.0.1-development",
+  "type": "module",
+  "author": "sprtskvch",
+  "license": "ISC",
+  "description": "Toolkit that helps manipulating financial flows",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "moment": "^2.30.1"
+  },
+  "main": "./lib/index.js",
+  "types": "./lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js",
+      "types": "./lib/index.cjs"
+    },
+    "./types": {
+      "default": "./lib/types/index.d.ts",
+      "types": "./lib/types/index.d.ts"
+    }
+  },
+  "files": [
+    "./lib/**/*"
+  ],
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.16",
+    "@types/node": "^22.14.0",
+    "semantic-release": "^24.2.3",
+    "typescript": "^5.8.3",
+    "@repo/typescript-config": "workspace:*"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepack": "npm run build",
+    "test": "node --experimental-strip-types --test",
+    "semantic-release": "semantic-release"
+  },
+  "keywords": [
+    "finance",
+    "financial",
+    "flows"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sprtskvch/finance-utilities.git"
+  }
+}
