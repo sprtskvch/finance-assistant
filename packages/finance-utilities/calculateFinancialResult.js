@@ -1,16 +1,16 @@
-import { generateOnePaymentDates } from "./generateOnePaymentDates.js";
-import { generateDailyPaymentDates } from "./generateDailyPaymentDates.js";
-import { generateWeeklyPaymentDates } from "./generateWeeklyPaymentDates.js";
-import { generateMonthlyPaymentDates } from "./generateMonthlyPaymentDates.js";
-import { generateFinancialFlow } from "./generateFinancialFlow.js";
 import { aggregateFinancialFlows } from "./aggregateFinancialFlows.js";
 import { generateCompoundInterestFlow } from "./generateCompoundInterestFlow.js";
 import { generateCumulativeResultFlow } from "./generateCumulativeResultFlow.js";
+import { generateDailyPaymentDates } from "./generateDailyPaymentDates.js";
+import { generateFinancialFlow } from "./generateFinancialFlow.js";
+import { generateMonthlyPaymentDates } from "./generateMonthlyPaymentDates.js";
+import { generateOnePaymentDates } from "./generateOnePaymentDates.js";
+import { generateWeeklyPaymentDates } from "./generateWeeklyPaymentDates.js";
 
 export function calculateFinancialResult(
   financialFlowDescriptions,
   interestFlowDescriptions,
-  dates
+  dates,
 ) {
   const financialFlows = financialFlowDescriptions.map(
     ({ type, payment, paymentLabel, ...rest }) => {
@@ -34,7 +34,7 @@ export function calculateFinancialResult(
           break;
       }
       return generateFinancialFlow(payment, paymentDates, paymentLabel);
-    }
+    },
   );
   const paymentFlow = aggregateFinancialFlows(financialFlows);
 
@@ -66,9 +66,12 @@ export function calculateFinancialResult(
         interest,
         paymentLabel,
       });
-    }
+    },
   );
 
-  const agregatedFlow = aggregateFinancialFlows([paymentFlow, ...interestFlows]);
+  const agregatedFlow = aggregateFinancialFlows([
+    paymentFlow,
+    ...interestFlows,
+  ]);
   return generateCumulativeResultFlow(agregatedFlow, dates);
 }

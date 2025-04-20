@@ -1,0 +1,4 @@
+pre-commit:
+  commands:
+    check:
+      run: pnpm biome check --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}

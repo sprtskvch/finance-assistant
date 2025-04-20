@@ -21,13 +21,9 @@
       "types": "./lib/types/index.d.ts"
     }
   },
-  "files": [
-    "./lib/**/*"
-  ],
+  "files": ["./lib/**/*"],
   "release": {
-    "branches": [
-      "main"
-    ]
+    "branches": ["main"]
   },
   "publishConfig": {
     "access": "public"
@@ -45,11 +41,7 @@
     "test": "node --experimental-strip-types --test",
     "semantic-release": "semantic-release"
   },
-  "keywords": [
-    "finance",
-    "financial",
-    "flows"
-  ],
+  "keywords": ["finance", "financial", "flows"],
   "repository": {
     "type": "git",
     "url": "https://github.com/sprtskvch/finance-utilities.git"
