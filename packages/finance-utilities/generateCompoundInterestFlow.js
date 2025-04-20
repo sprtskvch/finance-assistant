@@ -7,6 +7,7 @@ export function generateCompoundInterestFlow({
   interest,
   paymentLabel,
 }) {
+  console.log('test');
   const cumilitiveFlow = generateCumulativeResultFlow(financialFlow);
   let sum = 0;
   let j = 0;
